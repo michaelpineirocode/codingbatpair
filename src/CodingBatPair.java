@@ -24,4 +24,8 @@ public class CodingBatPair {
 	/*
 	 * Expected this run
 	 */
+	
+	public static void main(String[] args) {
+		
+	}
 }
