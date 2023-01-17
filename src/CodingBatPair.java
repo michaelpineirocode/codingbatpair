@@ -53,9 +53,38 @@ public class CodingBatPair {
 	 */
 	
 	// Plus Out Exercise
-	
+	public static String plusOut(String str, String word) {
+		String newStr = "";
+		if (str.contains(word) != false) {
+			  int wordIndex = str.indexOf(word);
+			  for (int i = 0; i < wordIndex; i++) {
+				  newStr = newStr.concat("+");
+			  }
+			  newStr = newStr.concat(word);
+			  String restOfStr = str.substring(wordIndex + word.length());
+			  String nextPart = plusOut(restOfStr, word);
+			  str = newStr.concat(nextPart);
+		  } else {
+			  for (int i = 0; i < str.length(); i++) {
+				 newStr = newStr.concat("+");
+			  }
+			  str = newStr;
+		  }
+		return str;
+	}
 	/*
 	 * Expected this run
+	 *  plusOut("12xy34", "xy") → "++xy++"	"++xy++"	OK	
+		plusOut("12xy34", "1") → "1+++++"	"1+++++"	OK	
+		plusOut("12xy34xyabcxy", "xy") → "++xy++xy+++xy"	"++xy++xy+++xy"	OK	
+		plusOut("abXYabcXYZ", "ab") → "ab++ab++++"	"ab++ab++++"	OK	
+		plusOut("abXYabcXYZ", "abc") → "++++abc+++"	"++++abc+++"	OK	
+		plusOut("abXYabcXYZ", "XY") → "++XY+++XY+"	"++XY+++XY+"	OK	
+		plusOut("abXYxyzXYZ", "XYZ") → "+++++++XYZ"	"+++++++XYZ"	OK	
+		plusOut("--++ab", "++") → "++++++"	"++++++"	OK	
+		plusOut("aaxxxxbb", "xx") → "++xxxx++"	"++xxxx++"	OK	
+		plusOut("123123", "3") → "++3++3"	"++3++3"	OK	
+		other tests OK
 	 */
 	
 	// Count Clumps Exercise
@@ -71,6 +100,6 @@ public class CodingBatPair {
 	 */
 	
 	public static void main(String[] args) {
-		
+		System.out.println(plusOut("12xy34", "xy"));
 	}
 }
