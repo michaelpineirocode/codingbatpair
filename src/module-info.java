@@ -1,9 +1,0 @@
-/**
- * 
- */
-/**
- * @author michaelpineiro
- *
- */
-module CodingBatPair {
-}
