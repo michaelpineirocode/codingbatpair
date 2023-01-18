@@ -94,7 +94,25 @@ public class CodingBatPair {
 	 */
 	
 	// Fix 34 Exercise
-	
+	public int[] fix34(int[] nums) {
+		int minimumStart = 0;
+		for (int i = 0; i < nums.length; i++) {
+			  if (nums[i] == 3) {
+				  int firstNumberIndex = i + 1;
+				  int secondNumber = 4;
+				  for (int j = minimumStart; j < nums.length; j++) {
+					  if (nums[j] == 4) {
+						  secondNumber = nums[j];
+						  nums[j] = nums[firstNumberIndex];
+						  minimumStart = j;
+						  break;
+					  }
+				  }
+				  nums[firstNumberIndex] = secondNumber;
+			  }
+		  }
+		  return nums;
+	}
 	/*
 	 * Expected this run
 	 */
